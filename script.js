@@ -66,6 +66,7 @@ const createNewTransaction = () => {
           newTransaction.classList.add("expense");
 
     moneyArr.push(parseFloat(amountInput.value));
+    countMoney(moneyArr);
 
     closePanel();
     ID++;
@@ -92,6 +93,11 @@ const checkCategory = (category) => {
             categoryIcon = '<i class="fas fa-film"></i>';
             break;
     }
+};
+
+const countMoney = (money) => {
+    const newMoney = money.reduce((a, b) => a + b);
+    availableMoney.textContent = `${newMoney}zł`;
 };
 
 addTransactionBtn.addEventListener("click", showPanel);
